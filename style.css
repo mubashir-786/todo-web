@@ -125,3 +125,13 @@ li {
     margin-top: 20px;
    
 }
+.clrbtn:hover {
+  background-color: red;
+  color: white;
+  
+}
+.donebtn:hover {
+  background-color: green;
+  color: white;
+
+}
