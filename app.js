@@ -5,15 +5,26 @@ var todoList = []
 function addtask(){
     
     var inp = document.getElementById("inputtask").value
-   todoList.push(inp) 
+   
+  if (inp == "") {
+    
+    alert("Please Enter")
+  }
+ else{
+  todoList.push(inp) 
+ }
+  
+  taskperform()
+}
 
+function taskperform(){
   document.getElementById("too").innerText = ""
 
   for(var i = 0 ; i < todoList.length ; i++ ) {
     var liss = document.createElement("li")
     var txt = document.createTextNode(todoList[i])
     liss.appendChild(txt)
-
+liss.className = "animate__animated  animate__fadeInLeft"
     li.appendChild(liss)
    
   
@@ -23,64 +34,66 @@ function addtask(){
     btnn.innerText = "Delete"
     btnn.className = "clrbtn"
     liss.appendChild(btnn)
+    btnn.onclick =  clr(i)
    
-
-    btnn.onclick = function clr (){
-      
-    
-        // var item = e.target
-        // if(item.todoList[0]==='clrbtn'){
-        //     var todo= item.parentElement
-        //     todo.remove()
-        // }
-  
-        
-  console.log(i)
-    }
-    //done button
+    //Edit button
   var dbtn = document.createElement("button")
-  dbtn.innerText = "Done"
+  dbtn.innerText = "Edit"
   dbtn.className = "donebtn"
   liss.appendChild(dbtn)
-  }
+  dbtn.onclick = edit(i)
 
-  
-  
+
+// done button
+  var donebtn = document.createElement("button")
+  donebtn.innerText = "Done"
+  donebtn.className = "donebtn"
+  liss.appendChild(donebtn)
+  donebtn.onclick = done(i)
+
+
+
+
+
+
+  }
+  document.getElementById("btn").innerText = "Add Task"
+  document.getElementById("inputtask").value = ""
 }
 
 
 
 
+function clr(i){
+  return function(){
+    todoList.splice(i,1)
+    taskperform()
 
-
-
-
-
-
-
-
-
-
-// function addtask(){
-//  var inp = document.getElementById("inputtask")
+  }
  
-//  var liss = document.createElement("li")
  
-// var itemList = document.createTextNode(inp.value)
-// var btnn = document.createElement("button")
-// btnn.innerText = "Delete"
-// liss.appendChild(itemList)
-// li.appendChild(liss)
-// liss.appendChild(btnn)
+}
+function edit(i){
+  return function(){
+    
+  (document.getElementById("inputtask").value = todoList[i])
+     todoList.splice(i,1)
+     add()
+  
+  }
 
-// inp.value  = ""
+}
 
+function add(){
+  document.getElementById("btn").innerText = "Edit"
+}
+function done(i){
 
-// btnn.onclick = function clrr() {
+   console.log(todoList[i])
+   
 
+}
 
-// } 
 
      
 
-// }
