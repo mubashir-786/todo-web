@@ -135,3 +135,38 @@ li {
   color: white;
 
 }
+.linebtn{
+  text-decoration: line-through;
+}
+@media screen and (min-width:250px)and (max-width:450px) {
+  .todolist{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    
+  }
+  #inputtask{
+    min-width: 10%;
+    margin: auto;
+    height: 5vh;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+  .btnn{
+      width: 82px;
+        font-size: 12px;
+        height: 5vh;
+    }
+    .li{
+      font-size:  5rem;
+    }
+    .donebtn , .clrbtn{
+      /* width: 2px; */
+    font-size: 8px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    font-weight: bold;
+    
+    }
+  }
